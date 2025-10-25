@@ -1,37 +1,23 @@
-REVIEW_PROMPT = """
-You are an expert code reviewer. Analyze the following PR patch and provide a professional code review.
+REVIEW_PROMPT = """Analyze this code change and provide a code review.
 
-PR PATCH:
+Code changes:
 {patch}
 
-KNOWLEDGE:
+Context:
 {context_snippets}
 
-CRITICAL INSTRUCTIONS - READ CAREFULLY:
-- DO NOT include any part of the diff/patch in your response
-- DO NOT show file paths, line numbers, or code snippets from the patch
-- DO NOT repeat these instructions in your output
-- DO NOT mention "PR PATCH" or "KNOWLEDGE" sections
-- ONLY provide your analysis and recommendations
-
-Provide your review in the following clean Markdown format:
+Write a code review in this exact format:
 
 ## 📋 Summary
-Write 2-3 sentences summarizing what this PR does (functionality changes, not code details).
+[2-3 sentences about what changed]
 
 ## 🔍 Issues Found
-List any issues you found. For each issue:
-- Use severity badges: 🔴 **HIGH** / 🟡 **MEDIUM** / 🟢 **LOW**
-- Describe the issue clearly
-- Suggest how to fix it
-
-If no issues found, write: "No significant issues detected. ✅"
+[List issues with 🔴 HIGH / 🟡 MEDIUM / 🟢 LOW severity, or write "No significant issues detected. ✅"]
 
 ## ✅ Suggested Tests
-List 2-4 test cases that should be added or verified.
+[List 2-3 test cases]
 
 ## 📊 Overall Quality
-Provide one overall assessment: Good 👍 / Needs Improvement ⚠️ / Critical Issues 🚨
+[Write: Good 👍 OR Needs Improvement ⚠️ OR Critical Issues 🚨]
 
-Remember: Your output should be a clean, professional review report with NO raw code, NO diffs, NO file paths.
-"""
+Important: Do NOT include code snippets or file paths in your review. Only describe the issues and suggestions."""
