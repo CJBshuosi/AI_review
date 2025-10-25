@@ -28,4 +28,6 @@ Output: JSON object with keys:
 - overall_quality
 
 Also provide a Markdown report at the top for quick review.
+Do not include the raw diff or context snippets in your output.
+Only show review results.
 """
