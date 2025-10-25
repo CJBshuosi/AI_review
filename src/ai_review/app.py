@@ -1,13 +1,17 @@
 import os, argparse
-from github import Github
+from github import Github, Auth
+import requests
 from model_client import ask_model
 from prompt_templates import REVIEW_PROMPT
 
 def get_pr_diff(repo_full, pr_number, token):
-    g = Github(token)
+    auth = Auth.Token(token)
+    g = Github(auth=auth)
     repo = g.get_repo(repo_full)
     pr = repo.get_pull(pr_number)
-    diff = pr.patch
+    diff_url = pr.diff_url
+    headers = {"Authorization": f"token {token}"}
+    diff = requests.get(diff_url, headers=headers).text
     return diff
 
 def post_comment(repo_full, pr_number, token, body):
