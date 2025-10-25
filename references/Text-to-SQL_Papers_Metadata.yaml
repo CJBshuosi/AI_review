@@ -1,0 +1,1469 @@
+# Text-to-SQL 多智能体与智能体系统论文元数据库
+# 更新时间: 2025-10-18
+# 涵盖范围: 2024-2025年顶会论文 + 高质量arXiv预印本
+
+metadata:
+  version: "1.0"
+  last_updated: "2025-10-18"
+  total_papers: 41
+  conferences:
+    - ICLR 2025
+    - NeurIPS 2025
+    - AAAI 2025
+    - ACL 2025
+    - NAACL 2025
+    - COLING 2025
+    - EMNLP 2024
+    - CIKM 2024
+  categories:
+    - Multi-Agent Systems
+    - Self-Correction & RL
+    - RAG & Tool-Augmented
+    - Multi-turn Dialogue
+    - Evaluation & Benchmarks
+    - Data Synthesis
+
+# ============================================================================
+# 2025年顶会论文 (Conference Papers 2025)
+# ============================================================================
+
+conference_papers:
+
+  # --------------------------------------------------------------------------
+  # ICLR 2025
+  # --------------------------------------------------------------------------
+
+  - id: spider2-iclr2025
+    title: "Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows"
+    authors:
+      - name: "xlang-ai Team"
+    venue:
+      conference: "ICLR"
+      year: 2025
+      type: "Oral Presentation"
+      presentation_date: "2025-04-25"
+      presentation_time: "15:42-15:54"
+    links:
+      arxiv: "https://arxiv.org/abs/2411.07763"
+      arxiv_id: "2411.07763"
+      github: "https://github.com/xlang-ai/Spider2"
+      website: "https://spider2-sql.github.io/"
+      openreview: "https://openreview.net/forum?id=XmProj9cPs"
+      iclr_page: "https://iclr.cc/virtual/2025/oral/31826"
+    category:
+      - Evaluation & Benchmarks
+    keywords:
+      - Real-world Enterprise
+      - SQL Workflows
+      - BigQuery
+      - Snowflake
+      - Complex Reasoning
+    benchmark:
+      name: "Spider 2.0"
+      tasks: 632
+      database_size: "1000+ columns"
+      sql_length: "100+ lines"
+    performance:
+      - model: "o1-preview (Code Agent)"
+        spider_1_0: 91.2
+        bird: 73.0
+        spider_2_0: 21.3
+      - model: "o1-preview"
+        spider_2_0: 17.1
+      - model: "GPT-4o"
+        spider_1_0: 86.6
+        spider_2_0: 10.1
+    key_contributions:
+      - "Real-world enterprise SQL workflow benchmark"
+      - "4-8x harder than Spider 1.0"
+      - "Requires multi-step reasoning and long context"
+    impact: "High (ICLR Oral)"
+
+  - id: chase-sql-iclr2025
+    title: "CHASE-SQL: Multi-Path Reasoning and Preference Optimized Candidate Selection in Text-to-SQL"
+    authors:
+      - name: "Mohammadreza Pourreza"
+      - name: "Hailong Li"
+      - name: "Ruoxi Sun"
+      - name: "Yeounoh Chung"
+      - name: "Shayan Talaei"
+      - name: "Gaurav Tarlok Kakkar"
+      - name: "Yu Gan"
+      - name: "Amin Saberi"
+      - name: "Fatma Özcan"
+      - name: "Sercan Ö. Arik"
+    affiliation:
+      - "Google Cloud"
+      - "Stanford University"
+    venue:
+      conference: "ICLR"
+      year: 2025
+      type: "Poster"
+      rating: 5.75
+    links:
+      arxiv: "https://arxiv.org/abs/2410.01943"
+      arxiv_id: "2410.01943"
+      openreview: "https://openreview.net/forum?id=CvGqMD5OtX"
+      iclr_page: "https://iclr.cc/virtual/2025/poster/30489"
+      pdf: "https://proceedings.iclr.cc/paper_files/paper/2025/file/974ff7b5bf08dbf9400b5d599a39c77f-Paper-Conference.pdf"
+    category:
+      - Multi-Agent Systems
+    keywords:
+      - Multi-path Reasoning
+      - Preference Optimization
+      - Divide-and-Conquer
+      - Query Execution Plan
+      - Instance-aware Examples
+    methods:
+      candidate_generation:
+        - "Divide-and-Conquer"
+        - "Query Execution Plan-Based Reasoning"
+        - "Instance-Aware Synthetic Examples"
+      candidate_selection:
+        - "Binary Pairwise Comparison"
+        - "Fine-tuned Selection LLM"
+    performance:
+      - benchmark: "Spider Test"
+        metric: "Execution Accuracy"
+        score: 87.6
+        rank: 2
+    key_contributions:
+      - "Multi-path reasoning for diverse candidates"
+      - "Instance-aware example generation"
+      - "Robust pairwise comparison selection"
+    impact: "High"
+
+  - id: route-iclr2025
+    title: "ROUTE: Robust Multitask Tuning and Collaboration for Text-to-SQL"
+    authors:
+      - name: "D2I-ai Team"
+    venue:
+      conference: "ICLR"
+      year: 2025
+      type: "Poster"
+      rating: 5.00
+    links:
+      arxiv: "https://arxiv.org/abs/2412.10138"
+      arxiv_id: "2412.10138"
+      github: "https://github.com/D2I-ai/Route"
+      openreview: "https://openreview.net/forum?id=BAglD6NGy0"
+    category:
+      - Multi-Agent Systems
+      - Multi-task Learning
+    keywords:
+      - Multitask Fine-tuning
+      - Agent Collaboration
+      - Schema Linking
+      - Noise Correction
+      - Open-source LLMs
+    methods:
+      msft_tasks:
+        - "Schema Linking"
+        - "Noise Correction"
+        - "Continuation Writing"
+        - "SQL Generation"
+      collaboration:
+        - "Multitask Collaboration Prompting (MCP)"
+        - "Reduce Hallucination"
+    experiments:
+      models_tested: 8
+      benchmarks_tested: 5
+    key_contributions:
+      - "Robust multitask tuning method"
+      - "Agent-inspired collaboration"
+      - "Leading performance on open-source LLMs"
+    code_available: true
+    impact: "Medium-High"
+
+  # --------------------------------------------------------------------------
+  # NeurIPS 2025
+  # --------------------------------------------------------------------------
+
+  - id: swe-sql-neurips2025
+    title: "SWE-SQL: Illuminating LLM Pathways to Solve User SQL Issues in Real-World Applications"
+    alternate_name: "BIRD-CRITIC 1.0"
+    authors:
+      - name: "bird-bench Team"
+    venue:
+      conference: "NeurIPS"
+      year: 2025
+      type: "Main Conference"
+    links:
+      arxiv: "https://arxiv.org/abs/2506.18951"
+      arxiv_id: "2506.18951"
+      github: "https://github.com/bird-bench/BIRD-CRITIC-1"
+      website: "https://bird-critic.github.io/"
+    category:
+      - Evaluation & Benchmarks
+      - SQL Debugging
+    keywords:
+      - SQL Debugging
+      - Issue Resolution
+      - Multi-dialect
+      - Training Environment
+    benchmark:
+      name: "BIRD-CRITIC"
+      bird_critic_pg: 530
+      bird_critic_multi: 570
+      total_tasks: 1100
+      dialects:
+        - MySQL
+        - PostgreSQL
+        - SQL Server
+        - Oracle
+    training_environment:
+      name: "Six-Gym (SQL-fIX-Gym)"
+      method: "SQL-Rewind Strategy"
+      boost: "f-Plan Boosting (73.7% more trajectories)"
+    agent:
+      name: "Bird-Fixer"
+      base_model: "Qwen-2.5-Coder-14B"
+    performance:
+      - model: "O3-Mini"
+        bird_critic_pg: 38.87
+        bird_critic_multi: 33.33
+      - model: "Bird-Fixer (14B)"
+        bird_critic_pg: 38.11
+        bird_critic_multi: 29.65
+        comparison: "Surpasses Claude-3.7-Sonnet and GPT-4.1"
+    key_contributions:
+      - "First large-scale SQL debugging benchmark"
+      - "SQL-Rewind training strategy"
+      - "14B model beats proprietary models"
+    impact: "High"
+
+  # --------------------------------------------------------------------------
+  # ACL 2025 (Findings)
+  # --------------------------------------------------------------------------
+
+  - id: parsql-acl2025
+    title: "PARSQL: Enhancing Text-to-SQL through SQL Parsing and Reasoning"
+    authors:
+      - name: "Yaxun Dai"
+      - name: "Haiqin Yang"
+      - name: "Mou Hao"
+      - name: "Pingfu Chao"
+    venue:
+      conference: "ACL"
+      year: 2025
+      type: "Findings"
+    category:
+      - Semantic Enhancement
+    keywords:
+      - SQL Parsing
+      - Reasoning
+      - Interpretability
+    key_contributions:
+      - "Explicit SQL parsing steps"
+      - "Reasoning-enhanced generation"
+    impact: "Medium"
+
+  - id: ucs-sql-acl2025
+    title: "UCS-SQL: Uniting Content and Structure for Enhanced Semantic Bridging In Text-to-SQL"
+    authors:
+      - name: "Zhenhe Wu"
+      - name: "Zhongqiu Li"
+      - name: "Jie Zhang"
+      - name: "Zhongjiang He"
+      - name: "Jian Yang"
+      - name: "Yu Zhao"
+      - name: "Ruiyu Fang"
+      - name: "Bing Wang"
+      - name: "Hongyan Xie"
+      - name: "Shuangyong Song"
+      - name: "Zhoujun Li"
+    venue:
+      conference: "ACL"
+      year: 2025
+      type: "Findings"
+    category:
+      - Semantic Enhancement
+    keywords:
+      - Content-Structure Unification
+      - Semantic Bridging
+      - Schema Understanding
+    key_contributions:
+      - "Unified content-structure representation"
+      - "Enhanced semantic bridging mechanism"
+    impact: "Medium"
+
+  - id: sqlforge-acl2025
+    title: "SQLForge: Synthesizing Reliable and Diverse Data to Enhance Text-to-SQL Reasoning in LLMs"
+    authors:
+      - name: "Yu Guo"
+      - name: "Dong Jin"
+      - name: "Shenghao Ye"
+      - name: "Shuangwu Chen"
+      - name: "Jianyang"
+      - name: "Xiaobin Tan"
+    venue:
+      conference: "ACL"
+      year: 2025
+      type: "Findings"
+    category:
+      - Data Synthesis
+    keywords:
+      - Data Synthesis
+      - Reliability
+      - Diversity
+      - Training Data
+    methods:
+      synthesis_goals:
+        - "Reliability: Correct SQL generation"
+        - "Diversity: Various query patterns"
+        - "Reduce annotation cost"
+    key_contributions:
+      - "Automated data synthesis framework"
+      - "Balance reliability and diversity"
+    impact: "Medium"
+
+  # --------------------------------------------------------------------------
+  # NAACL 2025
+  # --------------------------------------------------------------------------
+
+  - id: msc-sql-naacl2025
+    title: "MSc-SQL: Multi-Sample Critiquing Small Language Models For Text-To-SQL Translation"
+    authors:
+      - name: "Satya Krishna Gorti"
+      - name: "Ilan Gofman"
+      - name: "Zhaoyan Liu"
+      - name: "Jiapeng Wu"
+      - name: "Noël Vouitsis"
+      - name: "Guangwei Yu"
+      - name: "Jesse C. Cresswell"
+      - name: "Rasa Hosseinzadeh"
+    venue:
+      conference: "NAACL"
+      year: 2025
+      type: "Main Conference"
+    category:
+      - Multi-Agent Systems
+      - Small Models
+    keywords:
+      - Multi-sample Critiquing
+      - Small Language Models
+      - Resource Efficiency
+    key_contributions:
+      - "Small models with high performance"
+      - "Multi-sample collaboration"
+    impact: "Medium"
+
+  - id: flex-naacl2025
+    title: "FLEX: Expert-level False-Less EXecution Metric for Text-to-SQL Benchmark"
+    authors:
+      - name: "Heegyu Kim"
+      - name: "Jeon Taeyang"
+      - name: "SeungHwan Choi"
+      - name: "Seungtaek Choi"
+      - name: "Hyunsouk Cho"
+    venue:
+      conference: "NAACL"
+      year: 2025
+      type: "Main Conference"
+    category:
+      - Evaluation & Benchmarks
+    keywords:
+      - Evaluation Metric
+      - False-positive Reduction
+      - Execution-based
+    key_contributions:
+      - "Expert-level evaluation standard"
+      - "Reduce false positives"
+      - "More reliable metric"
+    impact: "Medium-High"
+
+  - id: track-sql-naacl2025
+    title: "Track-SQL: Enhancing Generative Language Models with Dual-Extractive Modules for Schema and Context Tracking in Multi-turn Text-to-SQL"
+    authors:
+      - name: "Bingfeng Chen"
+      - name: "Shaobin Shi"
+      - name: "Yongqi Luo"
+      - name: "Boyan Xu"
+      - name: "Ruichu Cai"
+      - name: "Zhifeng Hao"
+    venue:
+      conference: "NAACL"
+      year: 2025
+      type: "Main Conference"
+    category:
+      - Multi-turn Dialogue
+    keywords:
+      - Dual-extractive Modules
+      - Schema Tracking
+      - Context Tracking
+      - Multi-turn
+    methods:
+      modules:
+        - "Schema Tracking Module"
+        - "Context Tracking Module"
+    key_contributions:
+      - "Dual module collaboration"
+      - "Enhanced multi-turn capability"
+    impact: "Medium"
+
+  - id: yoro-naacl2025
+    title: "You Only Read Once (YORO): Learning to Internalize Database Knowledge for Text-to-SQL"
+    authors:
+      - name: "Hideo Kobayashi"
+      - name: "Wuwei Lan"
+      - name: "Peng Shi"
+      - name: "Shuaichen Chang"
+      - name: "Jiang Guo"
+      - name: "Henghui Zhu"
+      - name: "Zhiguo Wang"
+      - name: "Patrick Ng"
+    venue:
+      conference: "NAACL"
+      year: 2025
+      type: "Main Conference"
+    category:
+      - Efficiency Optimization
+    keywords:
+      - Knowledge Internalization
+      - Efficiency
+      - Reduced Input Length
+    key_contributions:
+      - "Internalize database knowledge"
+      - "Reduce input length"
+      - "Faster inference"
+    impact: "Medium"
+
+  - id: practiq-naacl2025
+    title: "PRACTIQ: A Practical Conversational Text-to-SQL dataset with Ambiguous and Unanswerable Queries"
+    authors:
+      - name: "Mingwen Dong"
+      - name: "Nischal Ashok Kumar"
+      - name: "Yiqun Hu"
+      - name: "Anuj Chauhan"
+      - name: "Chung-Wei Hang"
+      - name: "Shuaichen Chang"
+      - name: "Lin Pan"
+      - name: "Wuwei Lan"
+    venue:
+      conference: "NAACL"
+      year: 2025
+      type: "Main Conference"
+    category:
+      - Evaluation & Benchmarks
+      - Edge Cases
+    keywords:
+      - Ambiguous Queries
+      - Unanswerable Queries
+      - Practical Scenarios
+      - Conversational
+    benchmark:
+      name: "PRACTIQ"
+      features:
+        - "Ambiguous queries"
+        - "Unanswerable queries"
+        - "Real-world edge cases"
+    key_contributions:
+      - "Closer to real applications"
+      - "Handle edge cases"
+      - "System robustness"
+    impact: "Medium-High"
+
+  # --------------------------------------------------------------------------
+  # COLING 2025
+  # --------------------------------------------------------------------------
+
+  - id: mac-sql-coling2025
+    title: "MAC-SQL: A Multi-Agent Collaborative Framework for Text-to-SQL"
+    authors:
+      - name: "Bing Wang"
+      - name: "Changyu Ren"
+      - name: "Jian Yang"
+      - name: "Xinnian Liang"
+      - name: "Jiaqi Bai"
+      - name: "Linzheng Chai"
+      - name: "Zhao Yan"
+      - name: "Qian-Wen Zhang"
+      - name: "Di Yin"
+      - name: "Xing Sun"
+      - name: "Zhoujun Li"
+    venue:
+      conference: "COLING"
+      year: 2025
+      type: "Main Conference"
+      location: "Abu Dhabi, UAE"
+      date: "2025-01-19 to 2025-01-24"
+    links:
+      arxiv: "https://arxiv.org/abs/2312.11242"
+      arxiv_id: "2312.11242"
+      github: "https://github.com/wbbeyourself/MAC-SQL"
+      acl_anthology: "https://aclanthology.org/2025.coling-main.36/"
+      pdf: "https://aclanthology.org/2025.coling-main.36.pdf"
+    category:
+      - Multi-Agent Systems
+    keywords:
+      - Multi-agent Collaboration
+      - Large Databases
+      - Complex Queries
+      - Schema Selection
+    agents:
+      - name: "Decomposer"
+        role: "Core agent for SQL generation"
+        method: "Few-shot chain-of-thought"
+      - name: "Selector"
+        role: "Schema selection"
+        method: "Identify relevant tables/columns"
+      - name: "Refiner"
+        role: "Error correction"
+        method: "External tools"
+    performance:
+      - benchmark: "BIRD Holdout Test"
+        metric: "Execution Accuracy"
+        score: 59.59
+        note: "SOTA at the time"
+    key_contributions:
+      - "First systematic multi-agent framework for Text-to-SQL"
+      - "Schema selection for large databases"
+      - "External tool-enhanced refinement"
+    impact: "High (Classic Multi-Agent Framework)"
+
+  # --------------------------------------------------------------------------
+  # AAAI 2025
+  # --------------------------------------------------------------------------
+
+  - id: sqlfixagent-aaai2025
+    title: "SQLFixAgent: Towards Semantic-Accurate Text-to-SQL Parsing via Consistency-Enhanced Multi-Agent Collaboration"
+    authors:
+      - name: "Cen Jipeng"
+      - name: "Liu Jiaxin"
+      - name: "Li Zhixu"
+      - name: "Wang Jingjing"
+    venue:
+      conference: "AAAI"
+      year: 2025
+      type: "Main Conference"
+    links:
+      arxiv: "https://arxiv.org/abs/2406.13408"
+      arxiv_id: "2406.13408"
+      github: "https://github.com/Cen-Jipeng-SUDA/SQLFixAgent"
+    category:
+      - Multi-Agent Systems
+      - Semantic Accuracy
+    keywords:
+      - Semantic Accuracy
+      - Consistency Verification
+      - Rubber Duck Debugging
+      - Multi-agent Collaboration
+    agents:
+      - name: "SQLReviewer"
+        role: "Error detection"
+        method: "Rubber Duck Debugging"
+      - name: "QueryCrafter"
+        role: "Candidate generation"
+        method: "Fine-tuned SQLTool"
+      - name: "SQLRefiner"
+        role: "Final selection"
+        method: "Similar repair retrieval + Failure memory"
+    performance:
+      - benchmark: "BIRD"
+        metric: "Execution Accuracy"
+        improvement: "+3%"
+    key_contributions:
+      - "Address semantic accuracy problem"
+      - "Consistency-enhanced mechanism"
+      - "Failure memory reflection"
+    impact: "High"
+
+  - id: cogsql-aaai2025
+    title: "CogSQL: A Cognitive Framework"
+    venue:
+      conference: "AAAI"
+      year: 2025
+      type: "Main Conference"
+    category:
+      - Cognitive Framework
+    keywords:
+      - Cognitive Enhancement
+      - LLM
+      - Text-to-SQL Translation
+    key_contributions:
+      - "Cognitive framework for LLM enhancement"
+    impact: "Medium"
+
+  - id: confidence-estimation-aaai2025
+    title: "Confidence Estimation for Error Detection in Text-to-SQL Systems"
+    authors:
+      - name: "runnerup96 (GitHub username)"
+    venue:
+      conference: "AAAI"
+      year: 2025
+      type: "Main Conference"
+    links:
+      github: "https://github.com/runnerup96/error-detection-in-text2sql"
+    category:
+      - Evaluation & Benchmarks
+    keywords:
+      - Confidence Estimation
+      - Error Detection
+      - Entropy-based
+      - Model Calibration
+    key_contributions:
+      - "Coverage-risk tradeoff analysis"
+      - "Entropy-based confidence estimation"
+    impact: "Medium"
+
+  # --------------------------------------------------------------------------
+  # EMNLP 2024
+  # --------------------------------------------------------------------------
+
+  - id: dts-sql-emnlp2024
+    title: "DTS-SQL: Decomposed Text-to-SQL with Small Large Language Models"
+    authors:
+      - name: "Mohammadreza Pourreza"
+      - name: "Davood Rafiei"
+    venue:
+      conference: "EMNLP"
+      year: 2024
+      type: "Findings"
+    category:
+      - Decomposition
+    keywords:
+      - Decomposed Approach
+      - Small LLMs
+    key_contributions:
+      - "Decomposition with small LLMs"
+    impact: "Medium"
+
+  - id: ast-ranking-emnlp2024
+    title: "Improving Retrieval-augmented Text-to-SQL with AST-based Ranking and Schema Pruning"
+    authors:
+      - name: "Zhili Shen"
+      - name: "Pavlos Vougiouklis"
+      - name: "Chenxin Diao"
+      - name: "Kaustubh Vyas"
+      - name: "Yuanyi Ji"
+      - name: "Jeff Z. Pan"
+    venue:
+      conference: "EMNLP"
+      year: 2024
+      type: "Main Conference"
+    links:
+      acl_anthology: "https://aclanthology.org/2024.emnlp-main.449/"
+      pdf: "https://aclanthology.org/2024.emnlp-main.449.pdf"
+    category:
+      - RAG & Tool-Augmented
+    keywords:
+      - AST-based Ranking
+      - Schema Pruning
+      - Retrieval-augmented
+    key_contributions:
+      - "AST-based retrieval ranking"
+      - "Schema pruning for efficiency"
+    impact: "Medium"
+
+  - id: demonstration-diversity-emnlp2024
+    title: "Improving Demonstration Diversity by Human-Free Fusing for Text-to-SQL"
+    authors:
+      - name: "Dingzirui Wang"
+      - name: "Longxu Dou"
+      - name: "Xuanliang Zhang"
+      - name: "Qingfu Zhu"
+      - name: "Wanxiang Che"
+    venue:
+      conference: "EMNLP"
+      year: 2024
+      type: "Findings"
+    category:
+      - Prompting
+    keywords:
+      - Demonstration Diversity
+      - Human-free
+      - Few-shot Learning
+    key_contributions:
+      - "Improve demonstration diversity"
+    impact: "Medium"
+
+  # --------------------------------------------------------------------------
+  # CIKM 2024
+  # --------------------------------------------------------------------------
+
+  - id: multi-agent-demo-cikm2024
+    title: "Demonstration of a Multi-agent Framework for Text to SQL Applications with Large Language Models"
+    venue:
+      conference: "CIKM"
+      year: 2024
+      type: "Demo"
+    links:
+      acm: "https://dl.acm.org/doi/10.1145/3627673.3679216"
+    category:
+      - Multi-Agent Systems
+    keywords:
+      - AutoGen Framework
+      - Multi-agent Conversation
+      - Demonstration
+    key_contributions:
+      - "AutoGen framework for Text-to-SQL"
+    impact: "Low-Medium (Demo paper)"
+
+# ============================================================================
+# 高质量 arXiv 预印本 (High-Quality arXiv Preprints)
+# ============================================================================
+
+arxiv_preprints:
+
+  - id: sql-of-thought
+    title: "SQL-of-Thought: Multi-agentic Text-to-SQL with Guided Error Correction"
+    authors:
+      - name: "Saumya Chaturvedi"
+      - name: "Aman Chadha"
+      - name: "Laurent Bindschaedler"
+    venue:
+      conference: "NeurIPS 2025 DL4C Workshop"
+      year: 2025
+    submission_date: "2025-09"
+    links:
+      arxiv: "https://arxiv.org/abs/2509.00581"
+      arxiv_id: "2509.00581"
+      pdf: "https://www.arxiv.org/pdf/2509.00581"
+    category:
+      - Multi-Agent Systems
+      - Error Correction
+    keywords:
+      - 5-stage Pipeline
+      - Error Taxonomy
+      - Guided Correction
+      - Chain-of-Thought
+    stages:
+      - "Schema Linking"
+      - "Subproblem Identification"
+      - "Query Plan Generation"
+      - "SQL Generation"
+      - "Guided Correction Loop"
+    key_contributions:
+      - "Compact error taxonomy"
+      - "Dynamic error correction"
+      - "SOTA on Spider variants"
+    impact: "High"
+
+  - id: gbv-sql
+    title: "GBV-SQL: Guided Generation and SQL2Text Back-Translation Validation for Multi-Agent Text2SQL"
+    submission_date: "2025-09"
+    links:
+      arxiv: "https://arxiv.org/abs/2509.12612"
+      arxiv_id: "2509.12612"
+    category:
+      - Multi-Agent Systems
+      - Back-Translation
+    keywords:
+      - Back-translation Validation
+      - 4-agent Architecture
+      - Gold Error Analysis
+    agents:
+      - name: "Planner"
+        role: "Schema pruning and decomposition"
+      - name: "SQLGenerator"
+        role: "SQL generation for sub-questions"
+      - name: "SQL2TextValidator"
+        role: "Back-translation validation"
+      - name: "SQLChecker"
+        role: "Format and syntax checking"
+    performance:
+      - benchmark: "BIRD"
+        metric: "Execution Accuracy"
+        score: 63.23
+        improvement: "+5.8%"
+      - benchmark: "Spider (dev)"
+        score: 96.5
+        note: "After removing flawed examples"
+      - benchmark: "Spider (test)"
+        score: 97.6
+        note: "After removing flawed examples"
+    key_contributions:
+      - "Back-translation validation mechanism"
+      - "Gold Error taxonomy"
+      - "Benchmark quality analysis"
+    impact: "High"
+
+  - id: agentiql
+    title: "AgentiQL: An Agent-Inspired Multi-Expert Framework for Text-to-SQL Generation"
+    authors:
+      - name: "Omid Reza Heidari"
+      - name: "Siobhan Reid"
+      - name: "Yassine Yaakoubi"
+    submission_date: "2025-10-12"
+    last_revised: "2025-10-14"
+    version: "v2"
+    links:
+      arxiv: "https://arxiv.org/abs/2510.10661"
+      arxiv_id: "2510.10661"
+    category:
+      - Multi-Agent Systems
+      - Multi-Expert
+    keywords:
+      - Multi-expert Framework
+      - Adaptive Router
+      - Parallelization
+      - Interpretability
+    components:
+      - "Reasoning Agent"
+      - "Coding Agent"
+      - "Refinement Step"
+      - "Adaptive Router"
+    performance:
+      - benchmark: "Spider"
+        model: "14B open-source"
+        strategy: "Planner&Executor merging"
+        score: 86.07
+        comparison: "GPT-4 SOTA: 89.65 (gap: 3.58%)"
+    key_contributions:
+      - "Parallel execution support"
+      - "Adaptive routing mechanism"
+      - "14B model approaching GPT-4"
+    impact: "High"
+
+  - id: sql-o1
+    title: "SQL-o1: A Self-Reward Heuristic Dynamic Search Method for Text-to-SQL"
+    authors:
+      - name: "Shuai Lyu"
+      - name: "Haoran Luo"
+      - name: "Ripeng Li"
+      - name: "Zhonghong Ou"
+      - name: "Jiangfeng Sun"
+      - name: "Yang Qin"
+      - name: "Xiaoran Shang"
+      - name: "Meina Song"
+      - name: "Yifan Zhu"
+    submission_date: "2025-02-17"
+    last_revised: "2025-05-22"
+    version: "v3"
+    links:
+      arxiv: "https://arxiv.org/abs/2502.11741"
+      arxiv_id: "2502.11741"
+      pdf: "https://arxiv.org/pdf/2502.11741"
+    category:
+      - Self-Correction & RL
+      - MCTS
+    keywords:
+      - MCTS
+      - Self-Reward
+      - Dynamic Pruning
+      - Heuristic Search
+    methods:
+      - "Monte Carlo Tree Search (MCTS)"
+      - "Self-Reward Mechanism"
+      - "Dynamic Pruning Strategy"
+    performance:
+      - benchmark: "BIRD"
+        improvement: "+10.8%"
+        note: "Surpasses GPT-4-based models"
+      - benchmark: "Spider"
+        performance: "SOTA-level"
+    key_contributions:
+      - "MCTS for SQL generation"
+      - "Self-reward driven search"
+      - "+10.8% on complex BIRD"
+    impact: "Very High"
+
+  - id: reforce
+    title: "ReFoRCE: A Text-to-SQL Agent with Self-Refinement, Format Restriction, and Column Exploration"
+    submission_date: "2025-02"
+    links:
+      arxiv: "https://arxiv.org/abs/2502.00675"
+      arxiv_id: "2502.00675"
+      website: "https://hao-ai-lab.github.io/blogs/reforce/"
+    affiliation:
+      - "UCSD Hao AI Lab"
+    category:
+      - Self-Correction & RL
+    keywords:
+      - Self-Refinement
+      - Self-Consistency
+      - Format Restriction
+      - Column Exploration
+    mechanisms:
+      - "Self-Refinement: Iterative correction"
+      - "Self-Consistency: Multi-thread voting"
+      - "Format Restriction: Dialect compliance"
+      - "Column Exploration: Smart column discovery"
+    performance:
+      - benchmark: "Spider 2.0-Snow"
+        score: 35.83
+        rank: 1
+      - benchmark: "Spider 2.0-Lite"
+        score: 36.56
+        rank: 1
+    key_contributions:
+      - "Spider 2.0 leaderboard #1"
+      - "Self-refinement + self-consistency"
+    impact: "Very High (Leaderboard #1)"
+
+  - id: magic
+    title: "MAGIC: Generating Self-Correction Guideline for In-Context Text-to-SQL"
+    venue:
+      conference: "AAAI"
+      year: 2024
+    links:
+      arxiv: "https://arxiv.org/abs/2406.12692"
+      arxiv_id: "2406.12692"
+      aaai_page: "https://ojs.aaai.org/index.php/AAAI/article/view/34511/36666"
+    category:
+      - Self-Correction & RL
+    keywords:
+      - Self-Correction Guidelines
+      - Auto-generation
+      - 3-agent Collaboration
+    agents:
+      - name: "Manager Agent"
+        role: "Coordination"
+      - name: "Correction Agent"
+        role: "Error correction"
+      - name: "Feedback Agent"
+        role: "Iterative feedback"
+    key_contributions:
+      - "Auto-generated guidelines outperform human-written"
+      - "Improve interpretability"
+    impact: "High"
+
+  - id: mtsql-r1
+    title: "MTSQL-R1: Towards Long-Horizon Multi-Turn Text-to-SQL via Agentic Training"
+    authors:
+      - name: "Taicheng Guo"
+      - name: "et al. (7 authors)"
+    submission_date: "2025-10"
+    links:
+      arxiv: "https://arxiv.org/abs/2510.12831"
+      arxiv_id: "2510.12831"
+    category:
+      - Multi-turn Dialogue
+      - RL
+    keywords:
+      - MDP Modeling
+      - Multi-turn
+      - Long-horizon
+      - Agentic Training
+    methods:
+      - "MDP (Markov Decision Process) modeling"
+      - "Database execution feedback"
+      - "Persistent dialogue memory"
+      - "Propose → Execute → Verify → Refine loop"
+    benchmarks:
+      - "COSQL"
+      - "SPARC"
+    key_contributions:
+      - "Long-horizon multi-turn framework"
+      - "Environment-driven verification"
+      - "Memory-guided refinement"
+    impact: "High"
+
+  - id: agentic-nl2sql-cost
+    title: "Agentic NL2SQL to Reduce Computational Costs"
+    submission_date: "2025-10"
+    links:
+      arxiv: "https://arxiv.org/abs/2510.14808"
+      arxiv_id: "2510.14808"
+    category:
+      - Efficiency Optimization
+    keywords:
+      - Computational Cost
+      - Datalake Agent
+      - Efficiency
+    key_contributions:
+      - "Reduce computational costs"
+      - "Efficient meta-information processing"
+    impact: "Medium"
+
+  - id: hexgen-text2sql
+    title: "Hexgen-Text2SQL: Optimizing LLM Inference Request Scheduling for Agentic Text-to-SQL Workflows"
+    submission_date: "2025-05"
+    links:
+      arxiv: "https://arxiv.org/abs/2505.05286"
+      arxiv_id: "2505.05286"
+    category:
+      - Efficiency Optimization
+      - System
+    keywords:
+      - LLM Inference Scheduling
+      - Workflow Optimization
+      - Agentic System
+    key_contributions:
+      - "Optimize LLM inference scheduling"
+      - "Agentic workflow deployment"
+    impact: "Medium"
+
+  - id: reward-sql
+    title: "Reward-SQL: Boosting Text-to-SQL via Stepwise Reasoning and Process-Supervised Rewards"
+    submission_date: "2025-05"
+    links:
+      arxiv: "https://arxiv.org/abs/2505.04671"
+      arxiv_id: "2505.04671"
+    category:
+      - Self-Correction & RL
+    keywords:
+      - Process-Supervised Rewards
+      - Stepwise Reasoning
+      - RL
+    key_contributions:
+      - "Process-supervised reward mechanism"
+      - "Stepwise reasoning enhancement"
+    impact: "Medium-High"
+
+  - id: csc-sql
+    title: "CSC-SQL: Corrective Self-Consistency in Text-to-SQL via Reinforcement Learning"
+    submission_date: "2025-05"
+    links:
+      arxiv: "https://arxiv.org/abs/2505.13271"
+      arxiv_id: "2505.13271"
+    category:
+      - Self-Correction & RL
+    keywords:
+      - Corrective Self-Consistency
+      - Reinforcement Learning
+    key_contributions:
+      - "Self-consistency via RL"
+    impact: "Medium"
+
+  - id: sql-r1
+    title: "SQL-R1: Training Natural Language to SQL Reasoning Model By Reinforcement Learning"
+    submission_date: "2025-04"
+    links:
+      arxiv: "https://arxiv.org/abs/2504.08600"
+      arxiv_id: "2504.08600"
+    category:
+      - Self-Correction & RL
+    keywords:
+      - RL Training
+      - Reasoning Model
+    key_contributions:
+      - "RL-based reasoning training"
+    impact: "Medium"
+
+  - id: reasoning-sql
+    title: "Reasoning-SQL: Reinforcement Learning with SQL Tailored Partial Rewards for Reasoning-Enhanced Text-to-SQL"
+    submission_date: "2025-03"
+    links:
+      arxiv: "https://arxiv.org/abs/2503.23157"
+      arxiv_id: "2503.23157"
+    category:
+      - Self-Correction & RL
+    keywords:
+      - SQL-tailored Partial Rewards
+      - Reasoning Enhancement
+    key_contributions:
+      - "SQL-specific partial rewards"
+    impact: "Medium"
+
+  - id: schema-simplification
+    title: "Enhancing Multi-Table Text-to-SQL via Schema Simplification"
+    submission_date: "2025-05"
+    links:
+      arxiv: "https://arxiv.org/abs/2505.18122"
+      arxiv_id: "2505.18122"
+    category:
+      - Schema Processing
+    keywords:
+      - Schema Simplification
+      - Multi-table
+    key_contributions:
+      - "Schema simplification for multi-table"
+    impact: "Medium"
+
+  - id: domain-adaptation
+    title: "Text-to-SQL Domain Adaptation via Human-LLM Collaborative Data Annotation"
+    submission_date: "2025-02"
+    links:
+      arxiv: "https://arxiv.org/abs/2502.15980"
+      arxiv_id: "2502.15980"
+    category:
+      - Domain Adaptation
+    keywords:
+      - Domain Adaptation
+      - Human-LLM Collaboration
+      - Data Annotation
+    key_contributions:
+      - "Human-LLM collaborative annotation"
+    impact: "Medium"
+
+  - id: multi-turn-evaluation
+    title: "Evaluating and Enhancing LLMs for Multi-turn Text-to-SQL with Multiple Question Types"
+    submission_date: "2024-12"
+    links:
+      arxiv: "https://arxiv.org/abs/2412.17867"
+      arxiv_id: "2412.17867"
+    category:
+      - Evaluation & Benchmarks
+    keywords:
+      - Multi-turn Evaluation
+      - Multiple Question Types
+    key_contributions:
+      - "Multi-turn evaluation framework"
+    impact: "Medium"
+
+  - id: route-arxiv
+    title: "Route: Robust Multitask Tuning and Collaboration for Text-to-SQL"
+    submission_date: "2024-12"
+    links:
+      arxiv: "https://arxiv.org/abs/2412.10138"
+      arxiv_id: "2412.10138"
+    note: "Also accepted at ICLR 2025"
+    category:
+      - Multi-Agent Systems
+    keywords:
+      - Multitask Learning
+      - Collaboration
+    key_contributions:
+      - "Robust multitask approach"
+    impact: "High"
+
+  - id: llm-enhanced-survey
+    title: "Large Language Model Enhanced Text-to-SQL Generation: A Survey"
+    submission_date: "2024-10"
+    links:
+      arxiv: "https://arxiv.org/abs/2410.06011"
+      arxiv_id: "2410.06011"
+    category:
+      - Survey
+    keywords:
+      - Survey
+      - LLM Agent Systems
+      - Comprehensive Review
+    key_contributions:
+      - "Comprehensive survey of LLM-enhanced methods"
+    impact: "High (Survey)"
+
+  - id: nl2sql-review
+    title: "From Natural Language to SQL: Review of LLM-based Text-to-SQL Systems"
+    submission_date: "2024-10"
+    links:
+      arxiv: "https://arxiv.org/abs/2410.01066"
+      arxiv_id: "2410.01066"
+    category:
+      - Survey
+    keywords:
+      - Review
+      - LLM-based Systems
+    key_contributions:
+      - "System-level review"
+    impact: "Medium-High (Review)"
+
+  - id: next-gen-db-interfaces
+    title: "Next-Generation Database Interfaces: A Survey of LLM-based Text-to-SQL"
+    submission_date: "2024-06"
+    links:
+      arxiv: "https://arxiv.org/abs/2406.08426"
+      arxiv_id: "2406.08426"
+      pdf: "https://arxiv.org/pdf/2406.08426"
+    category:
+      - Survey
+    keywords:
+      - Survey
+      - Database Interfaces
+      - MAC-SQL Analysis
+    key_contributions:
+      - "Next-generation database interfaces"
+      - "Comprehensive LLM-based Text-to-SQL review"
+    impact: "High (Survey)"
+
+  - id: mcs-sql
+    title: "MCS-SQL: Leveraging Multiple Prompts and Multiple-Choice Selection For Text-to-SQL Generation"
+    submission_date: "2024-05"
+    links:
+      arxiv: "https://arxiv.org/abs/2405.07467"
+      arxiv_id: "2405.07467"
+    category:
+      - Prompting
+    keywords:
+      - Multiple Prompts
+      - Multiple-Choice Selection
+    key_contributions:
+      - "Multi-prompt selection strategy"
+    impact: "Medium"
+
+# ============================================================================
+# 基准数据集 (Benchmarks)
+# ============================================================================
+
+benchmarks:
+
+  - name: "Spider"
+    version: "1.0"
+    year: 2018
+    website: "https://yale-lily.github.io/spider"
+    description: "Cross-domain Text-to-SQL benchmark"
+    statistics:
+      databases: 200
+      questions: 10181
+      domains: 138
+    difficulty_levels:
+      - Easy
+      - Medium
+      - Hard
+      - Extra Hard
+    maintainer: "Yale LILY Lab"
+
+  - name: "Spider 2.0"
+    year: 2025
+    conference: "ICLR 2025 Oral"
+    website: "https://spider2-sql.github.io/"
+    github: "https://github.com/xlang-ai/Spider2"
+    description: "Real-world enterprise SQL workflows"
+    statistics:
+      tasks: 632
+      database_columns: "1000+"
+      sql_length: "100+ lines"
+    variants:
+      - "Spider 2.0-Snow"
+      - "Spider 2.0-Lite"
+    sponsor: "Snowflake"
+
+  - name: "BIRD"
+    full_name: "BIg Bench for Large-scale Database Grounded Text-to-SQL"
+    website: "https://bird-bench.github.io/"
+    description: "Large-scale database Text-to-SQL benchmark"
+    characteristics:
+      - "Large databases (dozens of tables)"
+      - "Complex queries (multi-table JOIN, nested subqueries)"
+      - "Real business scenarios"
+
+  - name: "BIRD-CRITIC"
+    version: "1.0"
+    year: 2025
+    conference: "NeurIPS 2025"
+    website: "https://bird-critic.github.io/"
+    github: "https://github.com/bird-bench/BIRD-CRITIC-1"
+    description: "SQL debugging benchmark"
+    statistics:
+      bird_critic_pg: 530
+      bird_critic_multi: 570
+      total: 1100
+    dialects:
+      - MySQL
+      - PostgreSQL
+      - "SQL Server"
+      - Oracle
+
+  - name: "PRACTIQ"
+    year: 2025
+    conference: "NAACL 2025"
+    description: "Practical conversational Text-to-SQL with ambiguous and unanswerable queries"
+    features:
+      - "Ambiguous queries"
+      - "Unanswerable queries"
+      - "Real-world edge cases"
+
+  - name: "COSQL"
+    description: "Conversational Text-to-SQL dataset"
+    focus: "Multi-turn dialogue"
+
+  - name: "SPARC"
+    description: "Semantic Parsing in Context"
+    focus: "Cross-domain context-dependent parsing"
+
+# ============================================================================
+# 研究机构 (Research Institutions)
+# ============================================================================
+
+institutions:
+
+  - name: "Yale LILY Lab"
+    full_name: "Language, Information, and Learning at Yale"
+    website: "https://yale-lily.github.io"
+    contributions:
+      - "Spider benchmark creator"
+
+  - name: "xlang-ai"
+    contributions:
+      - "Spider 2.0"
+
+  - name: "Google Cloud"
+    contributions:
+      - "CHASE-SQL"
+
+  - name: "Stanford University"
+    contributions:
+      - "CHASE-SQL"
+      - "Spider 2.0"
+
+  - name: "UCSD Hao AI Lab"
+    website: "https://hao-ai-lab.github.io"
+    contributions:
+      - "ReFoRCE (Spider 2.0 #1)"
+
+  - name: "Tsinghua University Database Group"
+    website: "https://dbgroup.cs.tsinghua.edu.cn"
+    contributions:
+      - "VLDB 2025 Text-to-SQL survey"
+
+  - name: "bird-bench Team"
+    contributions:
+      - "BIRD benchmark"
+      - "SWE-SQL / BIRD-CRITIC"
+
+# ============================================================================
+# 工具与框架 (Tools & Frameworks)
+# ============================================================================
+
+tools_frameworks:
+
+  - name: "Vanna"
+    type: "Open-source RAG Framework"
+    license: "MIT"
+    language: "Python"
+    github: "https://github.com/vanna-ai/vanna"
+    description: "Chat with your SQL database via RAG"
+    supported_llms:
+      - "GPT-4o"
+      - "Claude"
+      - "Llama 3.3 70B"
+      - "DeepSeek-v3"
+
+  - name: "Salesforce Horizon Agent"
+    type: "Commercial Product"
+    release_date: "2025-01 (GA)"
+    description: "Enterprise Text-to-SQL agent"
+    features:
+      - "Slack integration"
+      - "Quick deployment"
+
+  - name: "Amazon Bedrock Agents"
+    type: "Cloud Service"
+    description: "AWS Text-to-SQL solution"
+    features:
+      - "Amazon Redshift native support"
+
+# ============================================================================
+# 统计分析 (Statistics)
+# ============================================================================
+
+statistics:
+
+  total_papers: 41
+
+  by_year:
+    "2024": 8
+    "2025": 33
+
+  by_venue:
+    "ICLR 2025": 3
+    "NeurIPS 2025": 1
+    "ACL 2025": 3
+    "NAACL 2025": 6
+    "COLING 2025": 1
+    "AAAI 2025": 3
+    "EMNLP 2024": 3
+    "CIKM 2024": 1
+    "arXiv only": 20
+
+  by_category:
+    "Multi-Agent Systems": 10
+    "Self-Correction & RL": 8
+    "Evaluation & Benchmarks": 6
+    "RAG & Tool-Augmented": 3
+    "Multi-turn Dialogue": 3
+    "Data Synthesis": 1
+    "Efficiency Optimization": 3
+    "Survey": 3
+    "Other": 4
+
+  code_availability:
+    open_source: 17
+    percentage: 70+
+
+  impact_distribution:
+    "Very High": 3
+    "High": 15
+    "Medium-High": 8
+    "Medium": 13
+    "Low-Medium": 2
+
+# ============================================================================
+# 性能里程碑 (Performance Milestones)
+# ============================================================================
+
+performance_milestones:
+
+  spider_1_0:
+    - year: 2023
+      method: "Early LLM methods"
+      score: 70
+    - year: 2024
+      method: "MAC-SQL, GBV-SQL"
+      score: 85
+    - year: 2025
+      method: "CHASE-SQL"
+      score: 87.6
+
+  spider_2_0:
+    - method: "o1-preview (Code Agent)"
+      score: 21.3
+    - method: "o1-preview"
+      score: 17.1
+    - method: "GPT-4o"
+      score: 10.1
+    - method: "ReFoRCE"
+      snow_score: 35.83
+      lite_score: 36.56
+      rank: 1
+
+  bird:
+    - method: "MAC-SQL + GPT-4"
+      score: 59.59
+    - method: "GBV-SQL"
+      score: 63.23
+    - method: "SQL-o1"
+      improvement: "+10.8%"
+
+# ============================================================================
+# 研究趋势关键词 (Research Trend Keywords)
+# ============================================================================
+
+trending_keywords:
+  2025:
+    - "Real-world Enterprise Scenarios"
+    - "SQL Debugging"
+    - "Small Model Efficiency"
+    - "Edge Case Handling"
+    - "Evaluation Method Innovation"
+    - "Multi-agent Standardization"
+  2024:
+    - "Multi-agent Collaboration"
+    - "Self-correction Mechanisms"
+    - "MCTS Search"
+    - "Back-translation Validation"
+    - "RAG Enhancement"
+
+# ============================================================================
+# 推荐阅读优先级 (Reading Priority)
+# ============================================================================
+
+reading_priority:
+
+  must_read:
+    - id: "spider2-iclr2025"
+      reason: "ICLR Oral, redefines task difficulty"
+    - id: "chase-sql-iclr2025"
+      reason: "87.6% performance, multi-path reasoning"
+    - id: "swe-sql-neurips2025"
+      reason: "SQL debugging, BIRD-CRITIC benchmark"
+
+  highly_recommended:
+    - id: "route-iclr2025"
+      reason: "Multi-task collaboration, open-source LLM"
+    - id: "practiq-naacl2025"
+      reason: "Edge cases, practical scenarios"
+    - id: "sqlforge-acl2025"
+      reason: "Data synthesis, reduce annotation cost"
+
+  recommended:
+    - id: "yoro-naacl2025"
+      reason: "Efficiency optimization"
+    - id: "track-sql-naacl2025"
+      reason: "Multi-turn dialogue"
+    - id: "ucs-sql-acl2025"
+      reason: "Semantic bridging"
+
+# ============================================================================
+# 更新日志 (Changelog)
+# ============================================================================
+
+changelog:
+  - date: "2025-10-18"
+    version: "1.0"
+    changes:
+      - "Initial metadata database creation"
+      - "41 papers from 2024-2025"
+      - "Covers ICLR, NeurIPS, ACL, NAACL, COLING, AAAI conferences"
+      - "Includes high-quality arXiv preprints"
