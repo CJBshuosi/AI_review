@@ -1,7 +1,7 @@
 import os, argparse
 from github import Github
-from ai_review.model_client import ask_model
-from ai_review.prompt_templates import REVIEW_PROMPT
+from model_client import ask_model
+from prompt_templates import REVIEW_PROMPT
 
 def get_pr_diff(repo_full, pr_number, token):
     g = Github(token)
