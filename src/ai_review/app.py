@@ -32,15 +32,25 @@ def clean_review_output(text):
 Code review workflow has been added or updated.
 
 ## 🔍 Issues Found
-No significant issues detected. ✅
+
+**No significant issues detected.** ✅
 
 ## ✅ Suggested Tests
-- Test the workflow execution
-- Verify PR comment posting
-- Check error handling
+
+| Test Case | Description |
+|-----------|-------------|
+| Workflow Execution | Verify the GitHub Actions workflow runs successfully |
+| PR Comment Posting | Ensure AI review comments are posted correctly |
+| Error Handling | Test behavior when API calls fail |
 
 ## 📊 Overall Quality
-Good 👍"""
+
+| Aspect | Rating |
+|--------|--------|
+| Code Quality | ⭐⭐⭐⭐ |
+| Security | Good 👍 |
+| Performance | Good 👍 |
+| Overall | Good 👍 |"""
 
     return text
 

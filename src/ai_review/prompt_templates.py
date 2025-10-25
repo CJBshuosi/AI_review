@@ -6,18 +6,36 @@ Code changes:
 Context:
 {context_snippets}
 
-Write a code review in this exact format:
+Write a code review in this EXACT format with Markdown tables:
 
 ## 📋 Summary
-[2-3 sentences about what changed]
+[Write 2-3 sentences describing what changed]
 
 ## 🔍 Issues Found
-[List issues with 🔴 HIGH / 🟡 MEDIUM / 🟢 LOW severity, or write "No significant issues detected. ✅"]
+
+| Severity | Issue | Suggestion |
+|----------|-------|------------|
+| 🔴 HIGH | [Describe critical issue] | [How to fix it] |
+| 🟡 MEDIUM | [Describe moderate issue] | [How to fix it] |
+| 🟢 LOW | [Describe minor issue] | [How to fix it] |
+
+If no issues found, write: **No significant issues detected.** ✅
 
 ## ✅ Suggested Tests
-[List 2-3 test cases]
+
+| Test Case | Description |
+|-----------|-------------|
+| Test 1 | [What to test] |
+| Test 2 | [What to test] |
+| Test 3 | [What to test] |
 
 ## 📊 Overall Quality
-[Write: Good 👍 OR Needs Improvement ⚠️ OR Critical Issues 🚨]
 
-Important: Do NOT include code snippets or file paths in your review. Only describe the issues and suggestions."""
+| Aspect | Rating |
+|--------|--------|
+| Code Quality | ⭐⭐⭐⭐⭐ (1-5 stars) |
+| Security | Good 👍 / Needs Review ⚠️ / Critical 🚨 |
+| Performance | Good 👍 / Needs Review ⚠️ / Critical 🚨 |
+| Overall | Good 👍 / Needs Improvement ⚠️ / Critical Issues 🚨 |
+
+Important: Use ONLY tables. Do NOT include code snippets or file paths."""
