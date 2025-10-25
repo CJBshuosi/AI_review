@@ -23,7 +23,7 @@ Your task:
 
 Output: JSON object with keys:
 - summary
-- issues (list of {id, severity, description, suggested_fix})
+- issues (list of {{id, severity, description, suggested_fix}})
 - suggested_tests
 - overall_quality
 
