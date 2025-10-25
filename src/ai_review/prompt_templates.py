@@ -1,7 +1,8 @@
 REVIEW_PROMPT = """
 You are an expert code reviewer for a high-security codebase (C3-level), performing detailed and structured analysis.
 You receive a PR patch and related context snippets (knowledge base documents).
-
+Do not include the raw diff or context snippets in your output.
+Only show review results.
 PR PATCH:
 {patch}
 
@@ -28,6 +29,4 @@ Output: JSON object with keys:
 - overall_quality
 
 Also provide a Markdown report at the top for quick review.
-Do not include the raw diff or context snippets in your output.
-Only show review results.
 """

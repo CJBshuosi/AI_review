@@ -38,5 +38,5 @@ if __name__ == "__main__":
     context_snippets = ""  # 先留空或加载 knowledge/*.md
 
     review_text = run_review(diff, context_snippets)
-    comment_body = f"### 🤖 AI Code Review Report\n\n{review_text.strip()}"
+    comment_body = f"### 🤖 AI Code Review Report\n\n{review_text}"
     post_comment(args.repo, args.pr, token, comment_body)
