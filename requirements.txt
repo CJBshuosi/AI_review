@@ -4,3 +4,4 @@ accelerate
 faiss-cpu
 sentence-transformers
 PyGithub
+openai
