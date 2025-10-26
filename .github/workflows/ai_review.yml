@@ -28,6 +28,6 @@ jobs:
     - name: Run AI Code Review
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        DEEPSEEK_API: ${{ secrets.DEEPSEAK_API }}
+        DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
       run: |
         python src/ai_review/app.py --repo ${{ github.repository }} --pr ${{ github.event.pull_request.number }}
