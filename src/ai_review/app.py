@@ -54,6 +54,17 @@ Code review workflow has been added or updated.
 
     return text
 
+def load_context_snippets():
+    """Read Markdown specs for Alibaba & TGAC code standards"""
+    specs_dir = "docs/specs"
+    snippets = []
+    if not os.path.exists(specs_dir):
+        return ""
+    for path in glob.glob(os.path.join(specs_dir, "*.md")):
+        with open(path, "r", encoding="utf-8") as f:
+            snippets.append(f"\n\n# Knowledge from {os.path.basename(path)}\n\n" + f.read())
+    return "\n\n".join(snippets)
+
 def run_review(diff, context_snippets):
     prompt = REVIEW_PROMPT.format(patch=diff, context_snippets=context_snippets)
     review_text = ask_model(prompt)
@@ -70,7 +81,7 @@ if __name__ == "__main__":
     diff = get_pr_diff(args.repo, args.pr, token)
 
     # TODO: 可以用 RAG 检索上下文文档
-    context_snippets = ""  # 先留空或加载 knowledge/*.md
+    context_snippets = load_context_snippets()
 
     review_text = run_review(diff, context_snippets)
     # AI 输出已经是格式化的 Markdown，直接使用
