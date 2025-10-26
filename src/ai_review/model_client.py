@@ -5,10 +5,10 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def ask_model(prompt: str) -> str:
     """
-    Use OpenAI GPT-4-Turbo to perform the code review.
+    Use OpenAI gpt-5-mini to perform the code review.
     """
     response = client.chat.completions.create(
-        model="gpt-4-turbo",  # ✅ 最优模型，可改为 gpt-4o-mini 节省费用
+        model="gpt-5-mini",  # ✅ 最优模型，可改为 gpt-4o-mini 节省费用
         messages=[
             {"role": "system", "content": "You are a professional AI code reviewer."},
             {"role": "user", "content": prompt}
