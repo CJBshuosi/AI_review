@@ -4,7 +4,7 @@ import torch
 MODEL_NAME = "Qwen/Qwen2.5-Coder-14B-Instruct"
 device = "cuda" if torch.cuda.is_available() else "cpu"
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, trust_remote_code=True, device_map=None).to(device)
+model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, trust_remote_code=True, device_map=None).to("cpu")
 
 
 def ask_model(prompt, max_tokens=800):
