@@ -1,16 +1,20 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer
-import torch
+import os
+from openai import OpenAI
 
-MODEL_NAME = "Qwen/Qwen3-Coder-7B-Instruct"
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, trust_remote_code=True, device_map="auto")
+client = OpenAI(api_key=os.getenv("DEEPSEEK_API_KEY"), base_url="https://api.deepseek.com")
 
-def ask_model(prompt, max_tokens=512):
-    inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
-    outputs = model.generate(
-        **inputs,
-        max_new_tokens=max_tokens,
-        temperature=0.2,
-        do_sample=False
+def ask_model(prompt: str) -> str:
+    """
+    Use OpenAI gpt-5-mini to perform the code review.
+    """
+    response = client.chat.completions.create(
+        model="deepseek-coder",  # ✅ 最优模型，可改为 gpt-4o-mini 节省费用
+        messages=[
+            {"role": "system", "content": "You are a professional AI code reviewer."},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.3,
+        max_tokens=1200,
     )
-    return tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+    return response.choices[0].message.content.strip()
